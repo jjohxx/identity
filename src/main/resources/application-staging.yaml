@@ -1,0 +1,19 @@
+server:
+  port: ${STAGING_SERVER_PORT}
+
+spring:
+  datasource:
+    url: ${STAGING_DATABASE_URL}
+    username: ${STAGING_DATABASE_USERNAME}
+    password: ${STAGING_DATABASE_PASSWORD}
+  jpa:
+    show-sql: false # Set to false in staging for security
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    locations: classpath:db/migration,classpath:staging/db/migration
+
+logging:
+  level:
+    root: INFO

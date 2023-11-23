@@ -1,0 +1,19 @@
+server:
+  port: ${QA_SERVER_PORT}
+
+spring:
+  datasource:
+    url: ${QA_DATABASE_URL}
+    username: ${QA_DATABASE_USERNAME}
+    password: ${QA_DATABASE_PASSWORD}
+  jpa:
+    show-sql: true # Set to true in QA side only
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    locations: classpath:db/migration,classpath:qa/db/migration
+
+logging:
+  level:
+    root: INFO
